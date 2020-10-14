@@ -1,9 +1,10 @@
 import requests, webbrowser, bs4
 
+
 print('Digite algo a ser buscado: ')
 termosBuscados = input()
 
-print("Buscando os termos" + termosBuscados )
+print("Buscando os termos: " + termosBuscados )
 
 #Faz a requisição ao buscador de google
 res = requests.get("https://www.google.com/search?q=" + termosBuscados)
@@ -21,7 +22,4 @@ linksList = parserSoup.select('.r, a')
 numeroDePaginasAbertas = 5
 
 for i in range(numeroDePaginasAbertas):
-    print("Abrindo página" + linksList[i].get('href')[7:] + "\n")
-
-
-
+    print("Abrindo página: https://www.google.com" + linksList[i].get('href') + "\n")
